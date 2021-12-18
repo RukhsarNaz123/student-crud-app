@@ -12,7 +12,7 @@ html {
 body {
   box-sizing: border-box;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   grid-template-rows: auto auto 2fr;
   grid-template-areas:
     "header header header"
@@ -58,4 +58,49 @@ body {
 h1,
 h2 {
   margin: 0;
+  color: green;
+}
+
+table thead tr {
+  background-color: green;
+  color: white
+}
+
+table tbody tr:nth-child(even) {
+  background-color: lightblue;
+  color: black;
+}
+
+table thead th {
+  text-align: left;
+}
+
+section div {
+  position: relative;
+  height: 100%;
+}
+
+section button {
+  position: absolute;
+  bottom: 0;
+  right: 0
+}
+
+.input-wrapper {
+  display: flex;
+  text-align: left;
+}
+
+.input-wrapper .input {
+  width: 50%;
+}
+
+.students-list {
+  width: 100%;
+}
+
+.action-button {
+  background-color: green;
+  color: white;
+  line-height: 2;
 }

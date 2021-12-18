@@ -9,16 +9,15 @@ updateButton.addEventListener('click', _ => {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Student',
-      student: 'I find this CRUD app with CI/CD implemented very interesting.'
+      firstname: 'Owais'
     })
   })
-    .then(res => {
-      if (res.ok) return res.json()
-    })
-    .then(response => {
-      window.location.reload(true)
-    })
+  .then(res => {
+    if (res.ok) return res.json()
+  })
+  .then(response => {
+    window.location.reload(true)
+  })
 })
 
 deleteButton.addEventListener('click', _ => {
@@ -26,7 +25,7 @@ deleteButton.addEventListener('click', _ => {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      name: 'Student'
+      firstname: 'Owais'
     })
   })
     .then(res => {

@@ -61,8 +61,14 @@ function createApp(client) {
       { name: 'Student' },
       {
         $set: {
-          name: req.body.name,
-          student: req.body.student
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          dob: req.body.dob,
+          email: req.body.email,
+          noofsubjects: req.body.noofsubjects,
+          teacher: req.body.teacher,
+          phone: req.body.phone,
+          pic: req.body.pic
         }
       },
       {
@@ -80,32 +86,38 @@ function createApp(client) {
       { [req.params.attr]: req.params.value },
       {
         $set: {
-          name: req.body.name,
-          student: req.body.student
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
+          dob: req.body.dob,
+          email: req.body.email,
+          noofsubjects: req.body.noofsubjects,
+          teacher: req.body.teacher,
+          phone: req.body.phone,
+          pic: req.body.pic
         }
       },
       {
         upsert: true
       }
     )
-      .then(result => {
-        console.log(result)
-        res.json(result)
-      })
-      .catch(error => console.error(error))
+    .then(result => {
+      console.log(result)
+      res.json(result)
+    })
+    .catch(error => console.error(error))
   })
 
   app.delete('/students', (req, res) => {
     studentsCollection.deleteOne(
       { name: req.body.name }
     )
-      .then(result => {
-        if (result.deletedCount === 0) {
-          return res.json('No student to delete')
-        }
-        res.json('Deleted random student')
-      })
-      .catch(error => console.error(error))
+    .then(result => {
+      if (result.deletedCount === 0) {
+        return res.json('No student to delete')
+      }
+      res.json('Deleted random student')
+    })
+    .catch(error => console.error(error))
   })
 
   // ========================
